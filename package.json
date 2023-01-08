@@ -1,0 +1,59 @@
+{
+  "name": "@1xtr/moleculer-cloudwatch-logger",
+  "version": "1.0.0",
+  "description": "Moleculer custom logger for AWS CloudWatch",
+  "main": "src/cjs/index.js",
+  "module": "src/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/mjs/index.js",
+      "require": "./src/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1xtr/moleculer-cloudwatch-logger.git"
+  },
+  "keywords": [
+    "moleculer",
+    "aws",
+    "CloudWatch"
+  ],
+  "author": "Aleksei Anisimov <i@trendco.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1xtr/moleculer-cloudwatch-logger/issues"
+  },
+  "homepage": "https://github.com/1xtr/moleculer-cloudwatch-logger#readme",
+  "dependencies": {
+    "@aws-sdk/client-cloudwatch-logs": "^3.245.0",
+    "dayjs": "^1.11.7",
+    "lodash": "^4.17.21",
+    "moleculer": "^0.14.27"
+  },
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "prettier": "^2.8.2"
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ]
+  }
+}
