@@ -6,7 +6,7 @@
   "module": "src/mjs/index.js",
   "exports": {
     ".": {
-      "import": "./src/mjs/index.js",
+      "import": "./src/mjs/index.mjs",
       "require": "./src/cjs/index.js"
     }
   },
