@@ -202,13 +202,6 @@ export class CloudWatchLogger extends Loggers.Base {
       // return this.client.send(PutEventCommand)
       return this.client
         .send(PutEventCommand)
-        .then((res) => {
-          console.log({ result: res })
-          if (res.errors) {
-            // eslint-disable-next-line no-console
-            console.info(`Logs are uploaded to AWS CloudWatch, but has errors: ${res.errors}`)
-          }
-        })
         .catch((err) => {
           // eslint-disable-next-line no-console
           console.warn(`Unable to upload logs to AWS CloudWatch. Error:${err.message}`, err)
