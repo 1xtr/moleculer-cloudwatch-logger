@@ -29,6 +29,19 @@ import { hostname } from 'os'
 const logTimeFormat = 'YYYY-MM-DD_HH-mm-ss'
 const isObject = (o) => o !== null && typeof o === 'object' && !(o instanceof String)
 
+const replacerFunc = () => {
+  const visited = new WeakSet()
+  return (key, value) => {
+    if (typeof value === 'object' && value !== null) {
+      if (visited.has(value)) {
+        return
+      }
+      visited.add(value)
+    }
+    return value
+  }
+}
+
 /**
  * CloudWatchLogger logger for Moleculer
  * send logs directly to AWS CloudWatch
@@ -73,7 +86,7 @@ export class CloudWatchLogger extends Loggers.Base {
     
     this.objectPrinter = this.opts.objectPrinter
       ? this.opts.objectPrinter
-      : (obj) => JSON.stringify(obj)
+      : (obj) => JSON.stringify(obj, replacerFunc)
     
     if (this.opts.interval > 0) {
       this.timer = setInterval(() => this.flush(), this.opts.interval)
