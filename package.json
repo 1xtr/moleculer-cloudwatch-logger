@@ -1,6 +1,6 @@
 {
   "name": "@1xtr/moleculer-cloudwatch-logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Moleculer custom logger for AWS CloudWatch",
   "main": "src/cjs/index.js",
   "module": "src/mjs/index.js",
