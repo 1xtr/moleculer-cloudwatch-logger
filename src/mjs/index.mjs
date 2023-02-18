@@ -86,7 +86,7 @@ export class CloudWatchLogger extends Loggers.Base {
     
     this.objectPrinter = this.opts.objectPrinter
       ? this.opts.objectPrinter
-      : (obj) => JSON.stringify(obj, replacerFunc)
+      : (obj) => JSON.stringify(obj, replacerFunc())
     
     if (this.opts.interval > 0) {
       this.timer = setInterval(() => this.flush(), this.opts.interval)
